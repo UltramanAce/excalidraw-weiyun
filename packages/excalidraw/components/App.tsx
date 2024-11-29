@@ -5481,7 +5481,7 @@ class App extends React.Component<AppProps, AppState> {
 
     return frames.length ? frames[frames.length - 1] : null;
   };
-
+  /* canvas绘画指针移动事件 */
   private handleCanvasPointerMove = (
     event: React.PointerEvent<HTMLCanvasElement>,
   ) => {
@@ -6148,6 +6148,7 @@ class App extends React.Component<AppProps, AppState> {
     }
   }
 
+  /* canvas绘画指针按下事件 */
   private handleCanvasPointerDown = (
     event: React.PointerEvent<HTMLElement>,
   ) => {
@@ -6453,6 +6454,7 @@ class App extends React.Component<AppProps, AppState> {
       onPointerUp(_event || event.nativeEvent),
     );
 
+    // 添加箭头移动、抬起和键盘按下、松开事件监听（可以编辑模式 或 激光模式）
     if (!this.state.viewModeEnabled || this.state.activeTool.type === "laser") {
       window.addEventListener(EVENT.POINTER_MOVE, onPointerMove);
       window.addEventListener(EVENT.POINTER_UP, onPointerUp);
@@ -8453,6 +8455,7 @@ class App extends React.Component<AppProps, AppState> {
     return false;
   }
 
+  /* canvas绘画指针松开事件 */
   private onPointerUpFromPointerDownHandler(
     pointerDownState: PointerDownState,
   ): (event: PointerEvent) => void {
